@@ -21,36 +21,46 @@ const DefaultFullSymbol = () => (
   </svg>
 )
 
-const Star = React.memo(({ emptySymbol, fullSymbol, index, changeHandler, initialRating, noOfSelectedSymbols }) => (
-  <React.Fragment>
-    <input
-      value={index}
-      id={`star${index}`}
-      type='radio'
-      name='rating'
-      onChange={() => changeHandler(index)}
-      checked={initialRating === index || index === noOfSelectedSymbols}
-      className={`visuallyhidden ${index <= noOfSelectedSymbols ? 'selected' : ''}`}
-    />
-    <label
-      htmlFor={`star${index}`}
-      onMouseMove={() => changeHandler(index)}
-      onTouchMove={() => changeHandler(index)}
-      onTouchEnd={() => changeHandler(index)}
-    >
-      <span className='visuallyhidden'>{`${index} Star${index === 1 ? '' : 's'}`}</span>
-      <span className='empty-symbol'>{emptySymbol}</span>
-      <span className='full-symbol'>{fullSymbol}</span>
-    </label>
-  </React.Fragment>
-))
+const Star = React.memo(
+  ({ emptySymbol, fullSymbol, index, changeHandler, initialRating, noOfSelectedSymbols, getRatingValue }) => (
+    <React.Fragment>
+      <input
+        value={index}
+        id={`star${index}`}
+        type='radio'
+        name='rating'
+        onChange={() => {
+          changeHandler(index)
+          getRatingValue(index)
+        }}
+        checked={initialRating === index || index === noOfSelectedSymbols}
+        className={`visuallyhidden ${index <= noOfSelectedSymbols ? 'selected' : ''}`}
+      />
+      <label
+        htmlFor={`star${index}`}
+        onMouseEnter={() => {
+          changeHandler(index)
+          getRatingValue(index)
+        }}
+        onTouchStart={() => {
+          changeHandler(index)
+          getRatingValue(index)
+        }}
+      >
+        <span className='visuallyhidden'>{`${index} Star${index === 1 ? '' : 's'}`}</span>
+        <span className='empty-symbol'>{emptySymbol}</span>
+        <span className='full-symbol'>{fullSymbol}</span>
+      </label>
+    </React.Fragment>
+  )
+)
 
 class Rating extends React.PureComponent {
   state = {
     noOfSelectedSymbols: 0
   }
 
-  changeHandler = index => this.setState({ noOfSelectedSymbols: index })
+  changeHandler = noOfSelectedSymbols => this.setState({ noOfSelectedSymbols })
 
   render() {
     const {
@@ -70,9 +80,9 @@ class Rating extends React.PureComponent {
             fullSymbol={fullSymbol}
             index={index + 1}
             key={index}
-            onClick={getRatingValue(this.state.noOfSelectedSymbols)}
             changeHandler={this.changeHandler}
             initialRating={initialRating}
+            getRatingValue={getRatingValue}
             noOfSelectedSymbols={this.state.noOfSelectedSymbols}
           />
         ))}
