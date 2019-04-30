@@ -1,13 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-import ExampleComponent from 'accessible-react-rating'
+import Rating from 'accessible-react-rating';
 
-export default class App extends Component {
-  render () {
+import fullStarSrc from './assets/images/star-full.svg';
+import emptyStarSrc from './assets/images/star-empty.svg';
+
+const FullStar = () => <img src={fullStarSrc} alt="solid star" />;
+
+const EmptyStar = () => <img src={emptyStarSrc} alt="solid star" />;
+
+export default class App extends React.PureComponent {
+  getRatingValue = value => console.log(value);
+  render() {
     return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
+      <form>
+        <Rating fullSymbol={<FullStar />} emptySymbol={<EmptyStar />} getRatingValue={this.getRatingValue} />
+      </form>
+    );
   }
 }

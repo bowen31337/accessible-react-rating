@@ -1,8 +1,27 @@
 /* add css styles here (optional) */
 
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.full-symbol {
+  display: none;
+}
+.accessible-rating input.selected + label .full-symbol,
+.accessible-rating input:checked + label .full-symbol {
+  display: inline;
+}
+.accessible-rating input.selected + label .empty-symbol,
+.accessible-rating input:checked + label .empty-symbol {
+  display: none;
+}
+.accessible-rating input:focus + label {
+  border-bottom-style: dotted;
 }
