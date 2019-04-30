@@ -16,12 +16,12 @@
 }
 .accessible-rating input.selected + label .full-symbol,
 .accessible-rating input:checked + label .full-symbol {
-  display: inline;
+  display: inline-block;
 }
 .accessible-rating input.selected + label .empty-symbol,
 .accessible-rating input:checked + label .empty-symbol {
   display: none;
 }
 .accessible-rating input:focus + label {
-  border-bottom-style: dotted;
+  outline-bottom-style: dotted;
 }
