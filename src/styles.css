@@ -23,5 +23,5 @@
   display: none;
 }
 .accessible-rating input:focus + label {
-  outline-bottom-style: dotted;
+  border-bottom-style: dotted;
 }
