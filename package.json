@@ -2,7 +2,7 @@
   "name": "accessible-react-rating",
   "version": "1.0.1",
   "description": "it is an accessibile react component for rating.",
-  "author": "bowen31337",
+  "author": "Bowen Li",
   "license": "MIT",
   "repository": "bowen31337/accessible-react-rating",
   "main": "dist/index.js",
