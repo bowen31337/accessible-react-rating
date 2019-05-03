@@ -11,6 +11,7 @@
   "author": "Bowen Li",
   "license": "MIT",
   "repository": "bowen31337/accessible-react-rating",
+  "homepage": "https://bowen31337.github.io/accessible-react-rating/",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
