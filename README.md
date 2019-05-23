@@ -24,6 +24,17 @@ class Example extends Component {
 }
 ```
 
+## Properties
+
+| Property          | Type       | Default               | Description                                           |
+| ----------------- | ---------- | --------------------- | ----------------------------------------------------- |
+| `emptySymbol`     | _element_  | <img/> in the example | shown when it is not selected                         |
+| `fullSymbol`      | _element_  | <img/> in the example | shown when it is selected.                            |
+| `numberOfRatings` | _number_   | 5                     | the number of symbols.                                |
+| `initialRating`   | _number_   | 0                     | the number of symbols that are selected.              |
+| `legend`          | _string_   | 'your ratings'        | the legend in the fieldset .                          |
+| `getRatingValue`  | _function_ | ()=>{}                | the callback function when the symbols are selected . |
+
 ## Accessibility
 
 - ### Keyboard navigation
@@ -32,6 +43,13 @@ class Example extends Component {
 
 - ### Screen reader
   > Test with VoiceOver
+
+emptySymbol = <DefaultEmptySymbol />,
+fullSymbol = <DefaultFullSymbol />,
+numberOfRatings = 5,
+initialRating = 0,
+getRatingValue = () => {},
+legend = 'your ratings'
 
 ## License
 
