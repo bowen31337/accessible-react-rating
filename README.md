@@ -37,12 +37,13 @@ class Example extends Component {
 
 ## Accessibility
 
-- ### Keyboard navigation
+### Keyboard navigation
 
 > Use keyboard tab and arrow left/right to select the star
 
-- ### Screen reader
-  > Test with VoiceOver
+### Screen reader
+
+> Test with VoiceOver
 
 emptySymbol = <DefaultEmptySymbol />,
 fullSymbol = <DefaultFullSymbol />,
